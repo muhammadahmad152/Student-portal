@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Student Portal
 
 A polished Angular standalone application created for the Project Creation, Components, File Structure, and Routing assignment. The interface uses a premium dark visual theme, glass-style surfaces, animated gradients, responsive layouts, and CSS micro-interactions.
@@ -65,3 +66,6 @@ After the development server is running, open each route and capture one screens
 3. Students: `http://localhost:4200/students`
 
 On Windows, use **Win + Shift + S** to capture each page. Save the images in a folder named `screenshots` before submitting the project.
+=======
+# Student-portal
+>>>>>>> 4b2ec7cdaa68cef94515444cec00f41915cc01c1
