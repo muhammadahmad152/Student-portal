@@ -1,28 +1,24 @@
-<nav class="navbar" aria-label="Main navigation">
-  <a class="brand" routerLink="/" aria-label="Student Portal home">
-    <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <span class="brand-copy">
-      <strong>Student<span>Portal</span></strong>
-      <small>LEARN · CONNECT · GROW</small>
-    </span>
-  </a>
-
-  <div class="nav-links">
-    <a
-      routerLink="/"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      ariaCurrentWhenActive="page"
-    >
-      <span class="nav-index">01</span>Home
-    </a>
-    <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">
-      <span class="nav-index">02</span>About
-    </a>
-    <a routerLink="/students" routerLinkActive="active" ariaCurrentWhenActive="page">
-      <span class="nav-index">03</span>Students
-    </a>
-  </div>
-
-  <div class="nav-status"><span></span> CAMPUS COMMUNITY</div>
-</nav>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" (keydown.escape)="closeMenu()">
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" routerLink="/" aria-label="Student Portal home" (click)="closeMenu()">
+        <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-wordmark">campus<span>club.</span><small>STUDENT PORTAL</small></span>
+      </a>
+      <div class="nav-center"><span class="nav-orbit">✳</span><span>YOUR CAMPUS, YOUR CANVAS</span></div>
+      <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-controls="primary-navigation" [attr.aria-label]="menuOpen ? 'Close navigation menu' : 'Open navigation menu'">
+        <span></span><span></span>
+      </button>
+      <div id="primary-navigation" class="nav-panel" [class.is-open]="menuOpen">
+        <div class="nav-links">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page" (click)="closeMenu()">Home <span>01</span></a>
+          <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenu()">About <span>02</span></a>
+          <a routerLink="/students" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenu()">Students <span>03</span></a>
+        </div>
+        <a class="nav-cta" routerLink="/students" (click)="closeMenu()">Meet the crew <span>↗</span></a>
+        <div class="mobile-nav-foot"><span class="foot-pip"></span> LEARN · CONNECT · CREATE</div>
+      </div>
+    </div>
+  </nav>
+</header>

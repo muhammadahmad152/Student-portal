@@ -1,21 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { Students } from './students';
 
 describe('Students', () => {
-  let component: Students;
-  let fixture: ComponentFixture<Students>;
-
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Students],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(Students);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+    await TestBed.configureTestingModule({ imports: [Students] }).compileComponents();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('shows the five featured students', () => {
+    const fixture = TestBed.createComponent(Students);
+    expect(fixture.componentInstance.students.length).toBe(5);
+  });
+  it('filters by category', () => {
+    const fixture = TestBed.createComponent(Students);
+    fixture.componentInstance.setFilter('Design');
+    expect(fixture.componentInstance.filteredStudents.length).toBe(1);
+    expect(fixture.componentInstance.filteredStudents[0].name).toBe('Ahmed');
   });
 });

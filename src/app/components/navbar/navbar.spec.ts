@@ -1,21 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Navbar } from './navbar';
+import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { NavbarComponent } from './navbar';
 
-describe('Navbar', () => {
-  let component: Navbar;
-  let fixture: ComponentFixture<Navbar>;
-
+describe('NavbarComponent', () => {
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Navbar],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(Navbar);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+    await TestBed.configureTestingModule({ imports: [NavbarComponent], providers: [provideRouter([])] }).compileComponents();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('toggles the mobile menu', () => {
+    const fixture = TestBed.createComponent(NavbarComponent);
+    expect(fixture.componentInstance.menuOpen).toBe(false);
+    fixture.componentInstance.toggleMenu();
+    expect(fixture.componentInstance.menuOpen).toBe(true);
+    fixture.componentInstance.closeMenu();
+    expect(fixture.componentInstance.menuOpen).toBe(false);
   });
 });

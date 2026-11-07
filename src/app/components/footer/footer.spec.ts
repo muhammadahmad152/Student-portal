@@ -1,21 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Footer } from './footer';
+import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { FooterComponent } from './footer';
 
-describe('Footer', () => {
-  let component: Footer;
-  let fixture: ComponentFixture<Footer>;
-
+describe('FooterComponent', () => {
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Footer],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(Footer);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+    await TestBed.configureTestingModule({ imports: [FooterComponent], providers: [provideRouter([])] }).compileComponents();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('shows a current year and author name', () => {
+    const fixture = TestBed.createComponent(FooterComponent);
+    expect(fixture.componentInstance.studentName).toBe('Muhammad Ahmad Khan');
+    expect(fixture.componentInstance.currentYear).toBe(new Date().getFullYear());
   });
 });
