@@ -1,0 +1,183 @@
+:host {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: block;
+  padding: 14px clamp(18px, 5vw, 76px) 0;
+}
+
+.navbar {
+  display: flex;
+  width: min(100%, 1440px);
+  min-height: 78px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 12px 18px 12px 22px;
+  border: 1px solid rgb(184 207 242 / 13%);
+  border-radius: 22px;
+  background: rgb(11 20 39 / 78%);
+  box-shadow: 0 14px 45px rgb(0 0 0 / 22%), inset 0 1px 0 rgb(255 255 255 / 5%);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  animation: fade-up 650ms cubic-bezier(.2,.75,.25,1) both;
+}
+
+.brand {
+  display: inline-flex;
+  min-width: 205px;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  position: relative;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 8px;
+  overflow: hidden;
+  border: 1px solid rgb(101 229 210 / 40%);
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgb(101 229 210 / 19%), rgb(169 155 255 / 12%));
+  box-shadow: 0 0 24px rgb(101 229 210 / 10%);
+  transform: rotate(-5deg);
+  transition: transform 280ms ease, box-shadow 280ms ease;
+}
+
+.brand:hover .brand-mark {
+  box-shadow: 0 0 30px rgb(101 229 210 / 24%);
+  transform: rotate(0deg) scale(1.05);
+}
+
+.brand-mark i {
+  border-radius: 3px;
+  background: var(--cyan);
+}
+
+.brand-mark i:nth-child(2),
+.brand-mark i:nth-child(3) { opacity: .48; }
+.brand-mark i:nth-child(4) { background: var(--violet); }
+
+.brand-copy { display: grid; gap: 3px; }
+.brand-copy strong {
+  color: #f6f8ff;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.07rem;
+  font-weight: 800;
+  letter-spacing: -.045em;
+}
+.brand-copy strong span { color: var(--cyan); }
+.brand-copy small {
+  color: #8292b1;
+  font-size: .55rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.nav-links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 15px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: #aab7d0;
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 220ms ease, background 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+.nav-index {
+  color: #647493;
+  font-family: 'Manrope', sans-serif;
+  font-size: .63rem;
+  font-weight: 800;
+  transition: color 220ms ease;
+}
+
+.nav-links a::after {
+  position: absolute;
+  right: 15px;
+  bottom: 5px;
+  left: 15px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms ease;
+}
+
+.nav-links a:hover {
+  border-color: rgb(101 229 210 / 14%);
+  background: rgb(255 255 255 / 4%);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-links a.active {
+  border-color: rgb(101 229 210 / 19%);
+  background: linear-gradient(135deg, rgb(101 229 210 / 12%), rgb(169 155 255 / 8%));
+  color: var(--cyan);
+}
+.nav-links a.active .nav-index { color: var(--cyan); }
+
+.nav-status {
+  display: inline-flex;
+  min-width: 205px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  color: #8393b0;
+  font-size: .61rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+.nav-status span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 5px rgb(101 229 210 / 10%), 0 0 14px rgb(101 229 210 / 70%);
+  animation: pulse-glow 2.4s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .navbar { gap: 12px; }
+  .nav-status { display: none; }
+  .brand { min-width: auto; }
+}
+
+@media (max-width: 600px) {
+  :host { padding: 10px 12px 0; }
+  .navbar {
+    min-height: unset;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 13px;
+    padding: 14px;
+    border-radius: 18px;
+  }
+  .brand { justify-content: center; }
+  .nav-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }
+  .nav-links a { justify-content: center; gap: 5px; padding: 10px 5px; font-size: .79rem; }
+  .nav-links a::after { right: 10px; left: 10px; }
+  .nav-index { font-size: .55rem; }
+}

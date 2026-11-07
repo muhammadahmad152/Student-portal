@@ -1,0 +1,28 @@
+<nav class="navbar" aria-label="Main navigation">
+  <a class="brand" routerLink="/" aria-label="Student Portal home">
+    <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="brand-copy">
+      <strong>Student<span>Portal</span></strong>
+      <small>LEARN · CONNECT · GROW</small>
+    </span>
+  </a>
+
+  <div class="nav-links">
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      ariaCurrentWhenActive="page"
+    >
+      <span class="nav-index">01</span>Home
+    </a>
+    <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">
+      <span class="nav-index">02</span>About
+    </a>
+    <a routerLink="/students" routerLinkActive="active" ariaCurrentWhenActive="page">
+      <span class="nav-index">03</span>Students
+    </a>
+  </div>
+
+  <div class="nav-status"><span></span> CAMPUS COMMUNITY</div>
+</nav>
