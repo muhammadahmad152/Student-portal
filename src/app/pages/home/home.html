@@ -3,33 +3,63 @@
     <div class="hero-copy">
       <p class="eyebrow">A FRESH TAKE ON CAMPUS LIFE <span class="eyebrow-spark">✳</span></p>
       <h1 class="hero-title">Big ideas.<br /><span>Bright futures.</span></h1>
-      <p class="hero-intro">Your campus is more than a place to study. It’s where curiosity finds its people, new ideas get louder, and your next chapter begins.</p>
-      <div class="hero-actions"><a class="button-primary" routerLink="/students">Explore the community <span>↗</span></a><a class="button-text" routerLink="/about">Get to know us <span>→</span></a></div>
-      <div class="hero-footnote"><span class="footnote-mark">✳</span><span><strong>Curious minds belong here.</strong><br />A student space made for discovery and connection.</span></div>
+      <p class="hero-intro">Your campus is more than a place to study. It’s where curiosity finds its people, new ideas
+        get louder, and your next chapter begins.</p>
+      <div class="hero-actions"><a class="button-primary" routerLink="/students">Explore the community
+          <span>↗</span></a><a class="button-text" routerLink="/about">Get to know us <span>→</span></a></div>
+      <div class="hero-footnote"><span class="footnote-mark">✳</span><span><strong>Curious minds belong
+            here.</strong><br />A student space made for discovery and connection.</span></div>
     </div>
     <div class="hero-art" aria-label="Decorative campus club artwork">
-      <div class="art-grid"></div><div class="art-sun"></div><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div>
+      <div class="art-grid"></div>
+      <div class="art-sun"></div>
+      <div class="art-ring ring-a"></div>
+      <div class="art-ring ring-b"></div>
       <div class="art-label label-top">VOL. 01 <span>·</span> CAMPUS EDITION</div>
-      <div class="art-poster"><span class="poster-topline">THE PLACE TO</span><strong>learn<br /><em>out loud.</em></strong><span class="poster-bottomline">IDEAS LOOK GOOD ON YOU.</span><div class="poster-sticker">✳<small>MAKE<br />IT COUNT</small></div></div>
-      <div class="art-orbit-tag tag-lime"><span>✦</span> KEEP IT CURIOUS</div><div class="art-orbit-tag tag-white"><span>↗</span> GROW TOGETHER</div>
+      <div class="art-poster"><span class="poster-topline">THE PLACE TO</span><strong>learn<br /><em>out
+            loud.</em></strong><span class="poster-bottomline">IDEAS LOOK GOOD ON YOU.</span>
+        <div class="poster-sticker">✳<small>MAKE<br />IT COUNT</small></div>
+      </div>
+      <div class="art-orbit-tag tag-lime"><span>✦</span> KEEP IT CURIOUS</div>
+      <div class="art-orbit-tag tag-white"><span>↗</span> GROW TOGETHER</div>
       <span class="art-side-note">STUDENT PORTAL / 2026</span>
       <div class="art-bottom-label"><span class="art-live"></span> A COMMUNITY IN MOTION</div>
     </div>
   </div>
 
-  <div class="ticker" aria-label="Learn, connect, create, repeat"><div class="ticker-track"><span>LEARN WITH PURPOSE</span><b>✳</b><span>CONNECT WITH PEOPLE</span><b>✳</b><span>CREATE WHAT’S NEXT</span><b>✳</b><span>LEARN WITH PURPOSE</span><b>✳</b><span>CONNECT WITH PEOPLE</span><b>✳</b><span>CREATE WHAT’S NEXT</span><b>✳</b></div></div>
+  <div class="ticker" aria-label="Learn, connect, create, repeat">
+    <div class="ticker-track"><span>LEARN WITH PURPOSE</span><b>✳</b><span>CONNECT WITH
+        PEOPLE</span><b>✳</b><span>CREATE WHAT’S NEXT</span><b>✳</b><span>LEARN WITH PURPOSE</span><b>✳</b><span>CONNECT
+        WITH PEOPLE</span><b>✳</b><span>CREATE WHAT’S NEXT</span><b>✳</b></div>
+  </div>
 
   <div class="experience page-shell">
-    <div class="section-heading"><div><p class="section-label">A GOOD PLACE TO START / 01—03</p><h2>Make your mark.<br /><em>Find your rhythm.</em></h2></div><p class="section-aside">Three ways to make this space your own. Start anywhere — the next step is yours.</p></div>
+    <div class="section-heading">
+      <div>
+        <p class="section-label">A GOOD PLACE TO START / 01—03</p>
+        <h2>Make your mark.<br /><em>Find your rhythm.</em></h2>
+      </div>
+      <p class="section-aside">Three ways to make this space your own. Start anywhere — the next step is yours.</p>
+    </div>
     <div class="highlight-grid">
       @for (item of highlights; track item.number; let i = $index) {
-        <a class="highlight-card" [class.card-plum]="i === 1" [class.card-coral]="i === 2" [routerLink]="item.route" [style.animation-delay.ms]="i * 120">
-          <div class="highlight-meta"><span>{{ item.number }} / {{ item.tag }}</span><span class="highlight-symbol">{{ item.symbol }}</span></div>
-          <h3>{{ item.title }}</h3><p>{{ item.description }}</p><span class="highlight-arrow">↗</span><span class="highlight-ghost">{{ item.number }}</span>
-        </a>
+      <a class="highlight-card" [class.card-plum]="i === 1" [class.card-coral]="i === 2" [routerLink]="item.route"
+        [style.animation-delay.ms]="i * 120">
+        <div class="highlight-meta"><span>{{ item.number }} / {{ item.tag }}</span><span class="highlight-symbol">{{
+            item.symbol }}</span></div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p><span class="highlight-arrow">↗</span><span class="highlight-ghost">{{ item.number
+          }}</span>
+      </a>
       }
     </div>
   </div>
 
-  <div class="closing-strip"><div class="closing-inner page-shell"><div class="closing-star">✳</div><p>There’s no one way to grow.<br /><strong>Make this journey yours.</strong></p><a routerLink="/students">Meet your community <span>↗</span></a></div></div>
+  <div class="closing-strip">
+    <div class="closing-inner page-shell">
+      <div class="closing-star">✳</div>
+      <p>There’s no one way to grow.<br /><strong>Make this journey yours.</strong></p><a routerLink="/students">Meet
+        your community <span>↗</span></a>
+    </div>
+  </div>
 </section>

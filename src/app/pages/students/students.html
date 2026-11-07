@@ -1,33 +1,284 @@
+
 <section class="students-page page-shell">
+
   <header class="students-hero">
-    <div><p class="eyebrow">THE PEOPLE MAKE THE PLACE</p><h1 class="display-title">Meet the<br /><em>bright minds.</em></h1><p class="students-lead">A campus is made by its people. Get to know a few of the students who bring this community to life.</p></div>
-    <div class="member-seal"><span class="seal-star">✳</span><strong>05</strong><small>FEATURED<br />STUDENTS</small><span class="seal-orbit"></span></div>
+
+    <div>
+      <p class="eyebrow">THE PEOPLE MAKE THE PLACE</p>
+
+      <h1 class="display-title">
+        Meet the<br />
+        <em>bright minds.</em>
+      </h1>
+
+      <p class="students-lead">
+        A campus is made by its people. Get to know a few
+        of the students who bring this community to life.
+      </p>
+    </div>
+
+    <div class="member-seal" aria-label="Featured students">
+      <span class="seal-star" aria-hidden="true">✳</span>
+
+      <strong>
+        {{ students.length < 10 ? '0' + students.length : students.length }}
+      </strong>
+
+      <small>
+        FEATURED<br />
+        STUDENTS
+      </small>
+
+      <span class="seal-orbit"></span>
+    </div>
+
   </header>
 
   <section class="directory" aria-label="Student directory">
-    <div class="directory-top"><div><p class="section-label">THE DIRECTORY</p><h2>Find your people<span>.</span></h2></div><span class="directory-note">A SMALL COMMUNITY.<br />A LOT OF POTENTIAL.</span></div>
-    <div class="directory-tools">
-      <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" placeholder="Search by name or interest…" aria-label="Search students" [value]="searchTerm" (input)="searchTerm = $any($event.target).value" /><button type="button" class="clear-search" aria-label="Clear search" [hidden]="!searchTerm" (click)="clearSearch()">×</button></label>
-      <label class="sort-control"><span>SORT</span><select aria-label="Sort students" [value]="sortOrder" (change)="sortOrder = $any($event.target).value"><option value="featured">Featured</option><option value="az">Name: A–Z</option><option value="za">Name: Z–A</option></select></label>
+
+    <div class="directory-top">
+
+      <div>
+        <p class="section-label">THE DIRECTORY</p>
+
+        <h2>
+          Find your people<span>.</span>
+        </h2>
+      </div>
+
+      <span class="directory-note">
+        A SMALL COMMUNITY.<br />
+        A LOT OF POTENTIAL.
+      </span>
+
     </div>
-    <div class="filter-row"><div class="filter-chips" aria-label="Filter by area of interest"><button type="button" class="filter-chip" [class.active]="activeFilter === 'All'" [attr.aria-pressed]="activeFilter === 'All'" (click)="setFilter('All')">All students <span>{{ students.length }}</span></button><button type="button" class="filter-chip" [class.active]="activeFilter === 'Development'" [attr.aria-pressed]="activeFilter === 'Development'" (click)="setFilter('Development')">Development</button><button type="button" class="filter-chip" [class.active]="activeFilter === 'Design'" [attr.aria-pressed]="activeFilter === 'Design'" (click)="setFilter('Design')">Design</button><button type="button" class="filter-chip" [class.active]="activeFilter === 'Technology'" [attr.aria-pressed]="activeFilter === 'Technology'" (click)="setFilter('Technology')">Technology</button></div><p class="result-count">SHOWING <strong>{{ filteredStudents.length < 10 ? '0' + filteredStudents.length : filteredStudents.length }}</strong> / 05</p></div>
+
+    <div class="directory-tools">
+
+      <label class="search-box">
+
+        <span aria-hidden="true">⌕</span>
+
+        <input
+          #searchInput
+          type="search"
+          placeholder="Search by name or interest…"
+          aria-label="Search students"
+          autocomplete="off"
+          [value]="searchTerm"
+          (input)="searchTerm = searchInput.value"
+        />
+
+        <button
+          type="button"
+          class="clear-search"
+          aria-label="Clear search"
+          [hidden]="!searchTerm"
+          (click)="clearSearch()">
+          ×
+        </button>
+
+      </label>
+
+      <label class="sort-control">
+
+        <span>SORT</span>
+
+        <select
+          #sortSelect
+          aria-label="Sort students"
+          [value]="sortOrder"
+          (change)="setSortOrder(sortSelect.value)">
+
+          <option value="featured">Featured</option>
+          <option value="az">Name: A–Z</option>
+          <option value="za">Name: Z–A</option>
+
+        </select>
+
+      </label>
+
+    </div>
+
+    <div class="filter-row">
+
+      <div
+        class="filter-chips"
+        role="group"
+        aria-label="Filter by area of interest">
+
+        @for (filter of filters; track filter) {
+
+          <button
+            type="button"
+            class="filter-chip"
+            [class.active]="activeFilter === filter"
+            [attr.aria-pressed]="activeFilter === filter"
+            (click)="setFilter(filter)">
+
+            {{ filter === 'All' ? 'All students' : filter }}
+
+            @if (filter === 'All') {
+              <span>{{ students.length }}</span>
+            }
+
+          </button>
+
+        }
+
+      </div>
+
+      <p class="result-count" aria-live="polite">
+
+        SHOWING
+
+        <strong>
+          {{ filteredStudents.length < 10 ? '0' + filteredStudents.length : filteredStudents.length }}
+        </strong>
+
+        /
+
+        {{ students.length < 10 ? '0' + students.length : students.length }}
+
+      </p>
+
+    </div>
 
     @if (filteredStudents.length > 0) {
+
       <div class="student-grid">
+
         @for (student of filteredStudents; track student.name; let i = $index) {
-          <article class="student-card" [style.animation-delay.ms]="i * 90">
-            <div class="student-top"><span>{{ student.number }} / MEMBER</span><span class="student-star">✳</span></div>
-            <div class="avatar-wrap" [class.tone-coral]="student.tone === 'tone-coral'" [class.tone-lime]="student.tone === 'tone-lime'" [class.tone-blue]="student.tone === 'tone-blue'" [class.tone-lilac]="student.tone === 'tone-lilac'" [class.tone-ink]="student.tone === 'tone-ink'"><span>{{ student.initials }}</span><i></i><b></b></div>
-            <div class="student-info"><div><h3>{{ student.name }}</h3><p>{{ student.focus }}</p></div><span class="student-arrow">↗</span></div>
-            <div class="student-bottom"><span>{{ student.category }}</span><span class="status-dot"></span></div>
-            <span class="card-index">{{ student.number }}</span>
+
+          <article
+            class="student-card"
+            [style.animation-delay]="(i * 90) + 'ms'">
+
+            <div class="student-top">
+
+              <span>
+                {{ student.number }} / MEMBER
+              </span>
+
+              <span class="student-star" aria-hidden="true">
+                ✳
+              </span>
+
+            </div>
+
+            <div
+              class="avatar-wrap"
+              [class.tone-coral]="student.tone === 'tone-coral'"
+              [class.tone-lime]="student.tone === 'tone-lime'"
+              [class.tone-blue]="student.tone === 'tone-blue'"
+              [class.tone-lilac]="student.tone === 'tone-lilac'"
+              [class.tone-ink]="student.tone === 'tone-ink'"
+              [attr.aria-label]="student.name + ' avatar'">
+
+              <span aria-hidden="true">
+                {{ student.initials }}
+              </span>
+
+              <i aria-hidden="true"></i>
+              <b aria-hidden="true"></b>
+
+            </div>
+
+            <div class="student-info">
+
+              <div>
+
+                <h3>
+                  {{ student.name }}
+                </h3>
+
+                <p>
+                  {{ student.focus }}
+                </p>
+
+              </div>
+
+              <span class="student-arrow" aria-hidden="true">
+                ↗
+              </span>
+
+            </div>
+
+            <div class="student-bottom">
+
+              <span>
+                {{ student.category }}
+              </span>
+
+              <span class="status-dot" aria-hidden="true"></span>
+
+            </div>
+
+            <span class="card-index" aria-hidden="true">
+              {{ student.number }}
+            </span>
+
           </article>
+
         }
+
       </div>
-    } @else {
-      <div class="empty-state"><span>⌕</span><h3>No students found.</h3><p>Try another name or choose a different interest.</p><button type="button" (click)="clearSearch()">Reset directory <span>↗</span></button></div>
+
     }
+
+    @else {
+
+      <div class="empty-state" aria-live="polite">
+
+        <span aria-hidden="true">⌕</span>
+
+        <h3>
+          No students found.
+        </h3>
+
+        <p>
+          Try another name or choose a different interest.
+        </p>
+
+        <button
+          type="button"
+          (click)="clearSearch()">
+
+          Reset directory
+
+          <span aria-hidden="true">↗</span>
+
+        </button>
+
+      </div>
+
+    }
+
   </section>
 
-  <div class="community-note"><span class="note-spark">✳</span><p>Different interests. <strong>One shared space.</strong><br /><small>Every name has a story. Every student has room to grow.</small></p><span class="note-end">CAMPUS CLUB / 001</span></div>
+  <div class="community-note">
+
+    <span class="note-spark" aria-hidden="true">
+      ✳
+    </span>
+
+    <p>
+
+      Different interests.
+      <strong>One shared space.</strong>
+
+      <br />
+
+      <small>
+        Every name has a story. Every student has room to grow.
+      </small>
+
+    </p>
+
+    <span class="note-end">
+      CAMPUS CLUB / 001
+    </span>
+
+  </div>
+
 </section>

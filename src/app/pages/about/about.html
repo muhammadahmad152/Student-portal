@@ -1,7 +1,13 @@
 <section class="about-page page-shell">
   <header class="about-hero">
-    <div class="about-title-block"><p class="eyebrow">A LITTLE ABOUT OUR CAMPUS</p><h1 class="display-title">Rooted in learning.<br /><em>Open to what’s next.</em></h1></div>
-    <div class="about-intro"><span class="intro-mark">✳</span><p>A learning environment is shaped by the questions we ask, the skills we practise, and the people we meet along the way.</p></div>
+    <div class="about-title-block">
+      <p class="eyebrow">A LITTLE ABOUT OUR CAMPUS</p>
+      <h1 class="display-title">Rooted in learning.<br /><em>Open to what’s next.</em></h1>
+    </div>
+    <div class="about-intro"><span class="intro-mark">✳</span>
+      <p>A learning environment is shaped by the questions we ask, the skills we practise, and the people we meet along
+        the way.</p>
+    </div>
   </header>
 
   <div class="institute-layout">
@@ -12,22 +18,45 @@
       <h2>Aptech Computer<br /><em>Education</em></h2>
       <div class="location-line"><span>⌖</span> SHAHRAH-E-FAISAL · KARACHI</div>
       <div class="panel-rule"></div>
-      <p class="institute-description">Aptech Computer Education — Shahrah-e-Faisal Center, Karachi, is the institute featured in this Student Portal project. The portal brings together a simple introduction to the institute and a space to highlight its student community.</p>
+      <p class="institute-description">Aptech Computer Education — Shahrah-e-Faisal Center, Karachi, is the institute
+        featured in this Student Portal project. The portal brings together a simple introduction to the institute and a
+        space to highlight its student community.</p>
       <div class="panel-bottom"><span>STUDENT PORTAL PROJECT</span><span>EST. IN CURIOSITY ✳</span></div>
     </article>
     <aside class="institute-aside">
-      <div class="aside-illustration"><div class="illustration-circle"></div><div class="illustration-block block-a">IDEAS</div><div class="illustration-block block-b">IN<br />MOTION</div><span class="illustration-star">✳</span><span class="illustration-caption">LEARN / BUILD / REPEAT</span></div>
-      <div class="aside-quote"><span>“</span><p>Progress isn’t a finish line.<br /><strong>It’s a practice.</strong></p><small>A THOUGHT TO CARRY FORWARD</small></div>
+      <div class="aside-illustration">
+        <div class="illustration-circle"></div>
+        <div class="illustration-block block-a">IDEAS</div>
+        <div class="illustration-block block-b">IN<br />MOTION</div><span class="illustration-star">✳</span><span
+          class="illustration-caption">LEARN / BUILD / REPEAT</span>
+      </div>
+      <div class="aside-quote"><span>“</span>
+        <p>Progress isn’t a finish line.<br /><strong>It’s a practice.</strong></p><small>A THOUGHT TO CARRY
+          FORWARD</small>
+      </div>
     </aside>
   </div>
 
   <section class="values-section">
-    <div class="values-heading"><div><p class="section-label">OUR LEARNING MINDSET</p><h2>Good things grow<br /><em>from good habits.</em></h2></div><p>These are the ideas behind the experience this portal is designed to represent.</p></div>
+    <div class="values-heading">
+      <div>
+        <p class="section-label">OUR LEARNING MINDSET</p>
+        <h2>Good things grow<br /><em>from good habits.</em></h2>
+      </div>
+      <p>These are the ideas behind the experience this portal is designed to represent.</p>
+    </div>
     <div class="values-grid">
       @for (value of values; track value.number; let i = $index) {
-        <article class="value-card" [style.animation-delay.ms]="i * 130"><div class="value-top"><span>{{ value.number }} / PRINCIPLE</span><b>{{ value.icon }}</b></div><h3>{{ value.title }}</h3><p>{{ value.text }}</p><span class="value-line"></span></article>
+      <article class="value-card" [style.animation-delay.ms]="i * 130">
+        <div class="value-top"><span>{{ value.number }} / PRINCIPLE</span><b>{{ value.icon }}</b></div>
+        <h3>{{ value.title }}</h3>
+        <p>{{ value.text }}</p><span class="value-line"></span>
+      </article>
       }
     </div>
   </section>
-  <div class="about-cta"><p><span>READY TO SAY HELLO?</span><strong>Meet the student community.</strong></p><a routerLink="/students">Explore students <span>↗</span></a></div>
+  <div class="about-cta">
+    <p><span>READY TO SAY HELLO?</span><strong>Meet the student community.</strong></p><a routerLink="/students">Explore
+      students <span>↗</span></a>
+  </div>
 </section>

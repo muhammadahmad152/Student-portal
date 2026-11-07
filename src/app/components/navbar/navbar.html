@@ -7,14 +7,19 @@
         <span class="brand-wordmark">campus<span>club.</span><small>STUDENT PORTAL</small></span>
       </a>
       <div class="nav-center"><span class="nav-orbit">✳</span><span>YOUR CAMPUS, YOUR CANVAS</span></div>
-      <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-controls="primary-navigation" [attr.aria-label]="menuOpen ? 'Close navigation menu' : 'Open navigation menu'">
+      <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen"
+        aria-controls="primary-navigation"
+        [attr.aria-label]="menuOpen ? 'Close navigation menu' : 'Open navigation menu'">
         <span></span><span></span>
       </button>
       <div id="primary-navigation" class="nav-panel" [class.is-open]="menuOpen">
         <div class="nav-links">
-          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page" (click)="closeMenu()">Home <span>01</span></a>
-          <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenu()">About <span>02</span></a>
-          <a routerLink="/students" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenu()">Students <span>03</span></a>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+            ariaCurrentWhenActive="page" (click)="closeMenu()">Home <span>01</span></a>
+          <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMenu()">About
+            <span>02</span></a>
+          <a routerLink="/students" routerLinkActive="active" ariaCurrentWhenActive="page"
+            (click)="closeMenu()">Students <span>03</span></a>
         </div>
         <a class="nav-cta" routerLink="/students" (click)="closeMenu()">Meet the crew <span>↗</span></a>
         <div class="mobile-nav-foot"><span class="foot-pip"></span> LEARN · CONNECT · CREATE</div>
